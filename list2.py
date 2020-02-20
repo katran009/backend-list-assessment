@@ -20,11 +20,16 @@ Kenzie assignment: List2
 # so [1, 2, 2, 3] returns [1, 2, 3]. You may create a new list or
 # modify the passed in list.
 # Hint: Don't use `set()`
+__author__ = "katran009, Demo by Piero"
+__Total hours__ = "1.5 hour"
 
 
 def remove_adjacent(nums):
-    # your code here
-    return
+    result = []
+    for n in nums:
+        if not result or n != result[-1]:
+            result.append(n)
+    return result
 
 
 # E. Given two lists sorted in increasing order, create and return a merged
@@ -33,8 +38,15 @@ def remove_adjacent(nums):
 # Hint: Don't use `sort` or `sorted` -- they are not O(n) linear time, and the two lists
 # are already provided in ascending sorted order.
 def linear_merge(list1, list2):
-    # your code here
-    return
+    result = []
+    while list1 and list2:
+        if list1[0] < list2[0]:
+            result.append(list1.pop(0))
+        else:
+            result.append(list2.pop(0))
+    result.extend(list1)
+    result.extend(list2)
+    return result
 
 
 # Simple provided test() function used in main() to print
